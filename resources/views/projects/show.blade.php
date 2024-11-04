@@ -1,0 +1,48 @@
+<x-layout>
+    <x-slot:header>
+        @section('title','Project Details')
+        @section('create_button')
+        <a href="/projects/{{$project->id}}/tasks" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD TASKS</a>
+        @endsection
+    </x-slot:header>
+    <div>
+  <div class="px-4 sm:px-0 flex justify-between items-center">
+    <div>
+        <h3 class="text-base/7 font-semibold text-gray-900">Applicant Information</h3>
+        <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">Personal details and application.</p>
+    </div>
+    <div>
+        <a href="/projects/{{$project->id}}/edit" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">EDIT PROJECT</a>
+        <!-- <a  class="bg-red-800 text-white rounded-md px-3 py-2 text-sm font-medium">DELETE PROJECT</a> -->
+        <x-submit-button onclick="return confirm('Are you Sure to delete {{$project->title}}')"
+            form="delete-form-{{$project->id}}" class="bg-red-700 hover:bg-red-500">DELETE</x-submit-button>
+            <form method="post" action="/projects/{{$project->id}}/delete" id="delete-form-{{$project->id}}" class="hidden">
+                @csrf
+                @method('delete')
+            </form>
+
+    </div>
+  </div>
+  <div class="mt-6 border-t border-gray-300">
+    <dl class="divide-y divide-gray-300">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm/6 font-medium text-gray-900">Project title</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 font-bold">{{$project->title}}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm/6 font-medium text-gray-900">About</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$project->description}}</dd>
+      </div>
+    </dl>
+</div>
+<div class="px-4 mt-10 sm:px-0">
+    <h3 class="text-base/7 font-bold  text-gray-900">Project Realted Tasks</h3>
+</div>
+@if($project->tasks)
+@include('tasks.index', ['tasks' => $project->tasks])
+@else
+<p>No Related Tasks</p>
+@endif
+</div>
+
+</x-layout>
