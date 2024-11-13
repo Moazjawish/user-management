@@ -2,7 +2,7 @@
     <x-slot:header>
         @section('title','Project Details')
         @section('create_button')
-        <a href="/projects/{{$project->id}}/tasks" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD TASKS</a>
+        <x-edit-button href="/projects/{{$project->id}}/tasks" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD TASKS</x-edit-button>
         @endsection
     </x-slot:header>
     <div>
@@ -12,10 +12,11 @@
         <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">Personal details and application.</p>
     </div>
     <div>
-        <a href="/projects/{{$project->id}}/edit" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">EDIT PROJECT</a>
-        <!-- <a  class="bg-red-800 text-white rounded-md px-3 py-2 text-sm font-medium">DELETE PROJECT</a> -->
-        <x-submit-button onclick="return confirm('Are you Sure to delete {{$project->title}}')"
-            form="delete-form-{{$project->id}}" class="bg-red-700 hover:bg-red-500">DELETE</x-submit-button>
+    @can('isAdmin' )
+    <a href="/projects/{{$project->id}}/edit" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">EDIT PROJECT</a>
+    <x-submit-button onclick="return confirm('Are you Sure to delete {{$project->title}}')"
+    form="delete-form-{{$project->id}}" class="bg-red-700 hover:bg-red-500">DELETE</x-submit-button>
+    @endcan
             <form method="post" action="/projects/{{$project->id}}/delete" id="delete-form-{{$project->id}}" class="hidden">
                 @csrf
                 @method('delete')
@@ -43,6 +44,7 @@
 @else
 <p>No Related Tasks</p>
 @endif
+<x-edit-button href="/projects" class="text-sm font-semibold leading-6 text-white bg-gray-900">CANCEL</x-edit-button>
 </div>
 
 </x-layout>

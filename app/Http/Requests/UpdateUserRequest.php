@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Rule;
 
-class CreateUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,24 +14,22 @@ class CreateUserRequest extends FormRequest
     {
         return true;
     }
-        /**
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
-        // $userId = $this->route('user')->id;
+        $id = $this->route('user')->id;
         return [
             'first_name' => ['required','min:5'],
             'last_name' => ['required','min:5'],
-            'email' => 'required|email|max:255|unique:users,email',
-            'password' => ['required','confirmed',Password::defaults()],
-            'password_confirmation' => ['required'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $id],
             'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:20480'],
             'position' => ['required','min:5'],
             'salary' => ['required','min:5', 'numeric'],
-            'role' => 'user',
         ];
     }
 }

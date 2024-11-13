@@ -41,6 +41,20 @@
             </svg>
           </button>
         </div>
+        <!--  -->
+        <div class="flex items-center  gap-2">
+            @guest
+            <x-edit-button href="/login">LOGIN</x-edit-button>
+            @endguest
+            @auth
+            <x-edit-button href="/logout">LOGOUT</x-edit-button>
+            <div>
+                <img src='{{Auth::user()->image}}' class="rounded-full aspect-square object-cover" width="30px" height="30px" alt="">
+            </div>
+            <p class="text-white font-bold">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</p>
+            @endauth
+        </div>
+        <!--  -->
       </div>
     </div>
 
@@ -83,7 +97,9 @@
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-between">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">@yield('title')</h1>
+        @can('isAdmin' )
         @yield('create_button')
+        @endcan
     </div>
   </header>
   <main>

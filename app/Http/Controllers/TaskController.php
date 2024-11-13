@@ -6,6 +6,7 @@ use App\Http\Requests\CreateTask;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
@@ -17,8 +18,8 @@ class TaskController extends Controller
     }
     public function index()
     {
-        $tasks = Task::with('projects')->cursorPaginate(3);
-        return view('tasks.index', ['tasks' => $tasks]);
+            $tasks = Task::with('projects')->cursorPaginate(3);
+            return view('tasks.index', ['tasks' => $tasks]);
     }
 
     public function store(CreateTask $request , Project $project)

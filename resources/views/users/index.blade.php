@@ -5,7 +5,6 @@
         <a href="/users/create" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD USER</a>
         @endsection
     </x-slot:header>
-
     {{$users->links()}}
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto ">
@@ -48,14 +47,14 @@
                         </td>
                         <!--  -->
                         <td class="px-6 py-4 text-right space-x-2 flex flex-wrap justify-center">
+                            @can('isAdmin', $user)
                             <x-edit-button href="/users/{{$user->id}}/edit">UPDATE</x-edit-button>
                             <!--  -->
                             <x-submit-button onclick="return confirm('Are you Sure to delete {{$user->first_name}}')"
                             form="delete-form-{{$user->id}}" class="bg-red-700 hover:bg-red-500">DELETE</x-submit-button>
+                            @endcan
                             <!--  -->
                             <x-edit-button class="bg-blue-900 hover:bg-blue-200 " href="/users/{{$user->id}}">VIEW</x-edit-button>
-                            <!--  -->
-                            <!-- onclick="event.preventDefault(); document.getElementById('delete-form-{{$user->id}}').submit();" -->
                             <form method="post" action="/users/{{$user->id}}/delete" id="delete-form-{{$user->id}}" class="hidden">
                                 @csrf
                                 @method('delete')
