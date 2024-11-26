@@ -19,7 +19,7 @@
                 <x-form-field>
                     <x-form-label for="password">Password</x-form-label>
                     <div class="mt-2">
-                        <x-form-input name="password" id="password" />
+                        <x-form-input name="password" id="password" type="password" />
                     </div>
                     <x-form-error name="password"/>
                 </x-form-field>

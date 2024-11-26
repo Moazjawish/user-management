@@ -21,7 +21,6 @@ class CreateUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        // $userId = $this->route('user')->id;
         return [
             'first_name' => ['required','min:5'],
             'last_name' => ['required','min:5'],

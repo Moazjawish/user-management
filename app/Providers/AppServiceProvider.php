@@ -34,9 +34,11 @@ class AppServiceProvider extends ServiceProvider
                 // ->uncompromised()
                 ;
         });
+
         Gate::define('view-user-tasks', function(User $user, Task $task){
-            return $user->id === $task->user_id;
+            return $user->id == $task->user_id  || $user->role === 'admin';
         });
+
         Gate::define('isAdmin', function(User $user){
             return $user->role === 'admin' ? Response::allow() : Response::deny('you must be an admin');
         });

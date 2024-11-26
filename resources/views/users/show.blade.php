@@ -1,7 +1,7 @@
 <x-layout>
 @section('title', 'User Details')
 @section('create_button')
-        <x-edit-button href="/users" class="text-sm font-semibold leading-6 text-white bg-gray-900">CANCEL</x-edit-button>
+        <x-edit-button href="/users" class="text-sm font-semibold leading-6 text-white bg-gray-900">BACK</x-edit-button>
         @endsection
 
 <div class="grid gap-8 lg:grid-cols-2 items-start">
@@ -25,14 +25,14 @@
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm/6 font-medium text-gray-900">Salary</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$user->salary}}</dd>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$user->salary}}$ USD</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm/6 font-medium text-gray-900">About</dt>
         <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900">Attachmed Tasks</dt>
+        <dt class="text-sm/6 font-medium text-gray-900">Assigned Tasks</dt>
         @if($user->tasks)
         <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
             <ul role="list" class="divide-y divide-gray-300 rounded-md border border-gray-200">

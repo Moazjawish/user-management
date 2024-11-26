@@ -28,7 +28,9 @@
                 <x-form-field>
                     <x-form-label for="">Task Status</x-form-label>
                     <select name="status" class="mt-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        @foreach($tasks as $task)
+                    <option selected disabled>Please Select new Task state</option>
+
+                    @foreach($tasks as $task)
                             <option  value="{{old('status', $task->status)}}"> {{ $task->status }} </option>
                         @endforeach
                     </select>
@@ -37,6 +39,7 @@
                 <x-form-field>
                     <x-form-label for="">User to perform</x-form-label>
                     <select name="user_id" class="mt-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>Please Select new user to update</option>
                         @foreach($users as $user)
                             <option name="user_id" value="{{$user->id}} " >{{old('first_name', $user->first_name)}} {{old('last_name', $user->last_name)}} /  <span class="!text-gray-600 font-size-[20px] !bg-gray-600">{{old('position', $user->position)}}    </span> </option>
                         @endforeach

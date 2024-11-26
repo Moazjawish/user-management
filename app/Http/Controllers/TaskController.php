@@ -6,7 +6,6 @@ use App\Http\Requests\CreateTask;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
@@ -38,8 +37,7 @@ class TaskController extends Controller
     {
         $tasks = Task::groupBy('status')->get();
         $users = User::all();
-
-        return view('tasks.edit', ['project' => $project , 'task' => $task, 'tasks' => $tasks,  'users' => $users ]);
+        return view('tasks.edit', ['project' => $project, 'task' => $task, 'tasks' => $tasks, 'users' => $users ]);
     }
 
     public function update(CreateTask $request , Project $project, Task $task)

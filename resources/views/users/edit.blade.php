@@ -47,7 +47,7 @@
                     <x-form-error name="salary"/>
                 </x-form-field>
                 <!--  -->
-                <x-form-field class="sm:!col-span-4 ">
+                <!-- <x-form-field class="sm:!col-span-4 ">
                     <x-form-label >Cover photo</x-form-label>
                     <div class="mt-2 flex justify-around rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                         <div class="text-center flex items-center flex-col gap-2">
@@ -68,7 +68,7 @@
                         </div>
                     <x-form-error name="image"/>
 
-                    </x-form-field>
+                    </x-form-field> -->
             </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = DB::table('users')->where('role','user')->paginate(5);
+        $users = DB::table('users')->where('role','user')->latest()->cursorPaginate(3);
         return view('users.index', ['users' => $users]);
     }
 
@@ -60,23 +60,23 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $validated = $request->validated();
-        if($request->hasFile('image'))
-        {
-            if($user->image)
-            {
-                Storage::disk('public')->delete($user->image);
-            }
-            $path = $request->file('image')->store('images','public');
-        }
-        else
-        {
-            $path = $user->image;
-        }
+        // if($request->hasFile('image'))
+        // {
+        //     if($user->image)
+        //     {
+        //         Storage::disk('public')->delete($user->image);
+        //     }
+        //     $path = $request->file('image')->store('images','public');
+        // }
+        // else
+        // {
+        //     $path = $user->image;
+        // }
         $user->update([
                     'first_name' => $validated['first_name'],
                     'last_name' => $validated['last_name'],
                     'email' => $validated['email'],
-                    'image' => $path,
+                    // 'image' => $path,
                     'position' => $validated['position'],
                     'salary' => $validated['salary'],
         ]);

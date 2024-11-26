@@ -40,11 +40,11 @@
     <h3 class="text-base/7 font-bold  text-gray-900">Project Realted Tasks</h3>
 </div>
 @if($project->tasks)
-@include('tasks.index', ['tasks' => $project->tasks])
+    @include('tasks.index', ['tasks' => $project->tasks])
 @else
-<p>No Related Tasks</p>
+    <p>No Related Tasks</p>
 @endif
-<x-edit-button href="/projects" class="text-sm font-semibold leading-6 text-white bg-gray-900">CANCEL</x-edit-button>
+<x-edit-button href="/projects" class="text-sm font-semibold leading-6 text-white bg-gray-900">BACK</x-edit-button>
 </div>
 
 </x-layout>
