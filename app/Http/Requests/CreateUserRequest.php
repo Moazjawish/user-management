@@ -27,7 +27,7 @@ class CreateUserRequest extends FormRequest
             'email' => 'required|email|max:255|unique:users,email',
             'password' => ['required','confirmed',Password::defaults()],
             'password_confirmation' => ['required'],
-            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:20480'],
+            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048000'],
             'position' => ['required','min:5'],
             'salary' => ['required','min:5', 'numeric'],
             'role' => 'user',

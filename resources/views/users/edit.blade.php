@@ -47,7 +47,7 @@
                     <x-form-error name="salary"/>
                 </x-form-field>
                 <!--  -->
-                <!-- <x-form-field class="sm:!col-span-4 ">
+                <x-form-field class="sm:!col-span-4 ">
                     <x-form-label >Cover photo</x-form-label>
                     <div class="mt-2 flex justify-around rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                         <div class="text-center flex items-center flex-col gap-2">
@@ -63,12 +63,12 @@
                             <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                         </div>
                             <div class="mt-2 flex justify-center">
-                                <img id="imagePreview" src="{{ $user->image ? asset('storage/' . $user->image) : '' }}" alt="`" class="rounded-full aspect-square object-cover" width="200px" height="200px">
+                                <img id="imagePreview" src="{{ $user->image ? asset('storage/'.$user->image) : '' }}" alt="`" class="rounded-full aspect-square object-cover" width="200px" height="200px">
                             </div>
                         </div>
                     <x-form-error name="image"/>
 
-                    </x-form-field> -->
+                    </x-form-field>
             </div>
             </div>
         </div>

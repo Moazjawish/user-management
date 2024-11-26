@@ -11,7 +11,7 @@
                                     @if($task->users)
                                     <div class="flex flex-col  items-start space-x-4">
                                         <p class="font-bold">Users has task:</p>
-                                        <img class=" w-7 h-7 rounded-full" src="{{$task->users->image}}" alt="Jese Leos avatar" />
+                                        <img class=" w-7 h-7 rounded-full" src="{{asset('storage/'.$task->users->image)}}" alt="Jese Leos avatar" />
                                         <span class="font-medium dark:text-gray-400l">
                                             {{$task->users ? $task->users->first_name : 'No users Assigned' }}
                                         </span>

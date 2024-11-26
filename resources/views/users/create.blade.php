@@ -79,10 +79,6 @@
                             </div>
                             <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                         </div>
-                            <!-- <img src="{{ asset('storage/' . session('imagePath')) }}"  alt="Uploaded Image"> -->
-                            <!-- <div class="mt-2 flex justify-center">
-                                <img id="imagePreview" src="" alt="Image Preview" class="rounded-full aspect-square object-cover" width="200px" height="200px">
-                            </div> -->
                             <div class="mt-2 flex justify-center">
                                 <img id="imagePreview" src="" alt="`" class="rounded-full aspect-square object-cover" width="200px" height="200px">
                             </div>
