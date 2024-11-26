@@ -50,7 +50,7 @@
             @auth
             <x-edit-button href="/logout">LOGOUT</x-edit-button>
             <div>
-                <img src='{{Auth::user()->image}}' class="rounded-full aspect-square object-cover" width="30px" height="30px" alt="">
+                <img src='{{asset("storage/". Auth::user()->image)}}' class="rounded-full aspect-square object-cover" width="30px" height="30px" alt="">
             </div>
             <p class="text-white font-bold">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</p>
             @endauth
