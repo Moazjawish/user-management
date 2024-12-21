@@ -1,7 +1,10 @@
 <x-layout>
 @section('title', 'User Details')
 @section('create_button')
-        <x-edit-button href="/users" class="text-sm font-semibold leading-6 text-white bg-gray-900">BACK</x-edit-button>
+<div class="flex gap-2">
+    <x-edit-button href="/users" class="text-sm font-semibold leading-6 text-white bg-gray-900">BACK</x-edit-button>
+    <x-edit-button href="/users/{{$user->id}}/edit" class="!bg-red-500">UPDATE</x-edit-button>
+</div>
         @endsection
 
 <div class="grid gap-8 lg:grid-cols-2 items-start">

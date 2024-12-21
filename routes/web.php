@@ -50,7 +50,7 @@ Route::post('/projects/{project}/tasks/store',[TaskController::class,'store']);
 // Route::get('/projects/{project}/tasks/{task}/edit',[TaskController::class,'edit']);
 Route::patch('/projects/{project}/tasks/{task}/update',[TaskController::class,'update']);
 // Route::delete('/projects/{project}/tasks/{task}/delete',[TaskController::class,'delete']);
-Route::get('/projects/{project}/tasks/',[TaskController::class,'create']);
+Route::get('/projects/{project}/tasks/addTask',[TaskController::class,'create']);
 Route::patch('/projects/{project}/update', [ProjectController::class,'update']);
 
 Route::get('/login',[SessionController::class, 'index'])->name('login');

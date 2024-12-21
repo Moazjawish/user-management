@@ -34,6 +34,8 @@
                             <option  value="{{old('status', $task->status)}}"> {{ $task->status }} </option>
                         @endforeach
                     </select>
+                    <x-form-error name="status"/>
+
                 </x-form-field>
 
                 <x-form-field>
@@ -44,6 +46,7 @@
                             <option name="user_id" value="{{$user->id}} " >{{old('first_name', $user->first_name)}} {{old('last_name', $user->last_name)}} /  <span class="!text-gray-600 font-size-[20px] !bg-gray-600">{{old('position', $user->position)}}    </span> </option>
                         @endforeach
                     </select>
+                    <x-form-error name="user_id"/>
                 </x-form-field>
 
             </div>

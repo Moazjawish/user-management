@@ -5,7 +5,6 @@
         <a href="/users/create" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD USER</a>
         @endsection
     </x-slot:header>
-    {{$users->links()}}
 <div class="relative overflow-x-auto w-full shadow-md sm:rounded-lg">
     <table class="mt-5 rounded-lg w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto ">
         <thead class="text-xs  rounded-lg text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -67,7 +66,10 @@
             @endforeach
         </tbody>
     </table>
-
 </div>
+    <div class="mt-6">
+        {{$users->links()}}
+    </div>
+
 
     </x-layout>

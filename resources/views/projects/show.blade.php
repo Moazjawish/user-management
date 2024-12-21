@@ -2,7 +2,7 @@
     <x-slot:header>
         @section('title','Project Details')
         @section('create_button')
-        <x-edit-button href="/projects/{{$project->id}}/tasks" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD TASKS</x-edit-button>
+        <x-edit-button href="/projects/{{$project->id}}/tasks/addTask" class="bg-gray-800 text-white rounded-md px-3 py-2 text-sm font-medium">ADD TASKS</x-edit-button>
         @endsection
     </x-slot:header>
     <div>

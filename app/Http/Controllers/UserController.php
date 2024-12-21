@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = DB::table('users')->where('role','user')->latest()->cursorPaginate(3);
+        $users = DB::table('users')->where('role','user')->latest()->paginate(3);
         return view('users.index', ['users' => $users]);
     }
 

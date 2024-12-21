@@ -27,4 +27,14 @@ class CreateTask extends FormRequest
             'user_id' => ['required'],
         ];
     }
+
+    public function messages():array
+    {
+        return [
+            'status.required' => ['please select the task status'],
+            'user_id.required' => ['please select user to perform task'],
+        ];
+    }
+
+
 }
